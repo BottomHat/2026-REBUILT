@@ -13,6 +13,9 @@ import frc.robot.Subsystems.DriveTrain.DriveTrainRealIO;
 import frc.robot.Subsystems.DriveTrain.DriveTrainSimIO;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -50,6 +53,26 @@ public class RobotContainer {
 
     public final Shooter m_shooter = new Shooter();
 
+    /*
+
+    //The robot's subsystems and commands are defined here...
+    private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+
+    // Replace with CommandPS4Controller or CommandJoystick if needed
+    private final CommandXboxController m_driverController =
+        new CommandXboxController(OperatorConstants.kDriverControllerPort);
+
+    */
+
+    /** The container for the robot. Contains subsystems, OI devices, and commands. */
+    // auto commands here
+    public RobotContainer() {
+        NamedCommands.registerCommand("Intake On Command", new InstantCommand());
+
+        // Configure the trigger bindings
+        configureBindings();
+    }
+
     // update the swerve
     public void updateSwerve() {
      double rightStickUpDown = simp_stick.getRawAxis(5);
@@ -75,24 +98,6 @@ public class RobotContainer {
       y_metersPerSecond, 
       angle_radiansPerSecond
       );
-        
-    }
-
-    /*
-
-    //The robot's subsystems and commands are defined here...
-    private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
-    // Replace with CommandPS4Controller or CommandJoystick if needed
-    private final CommandXboxController m_driverController =
-        new CommandXboxController(OperatorConstants.kDriverControllerPort);
-
-    */
-
-    /** The container for the robot. Contains subsystems, OI devices, and commands. */
-    public RobotContainer() {
-        // Configure the trigger bindings
-        configureBindings();
     }
 
     /**
@@ -116,6 +121,7 @@ public class RobotContainer {
         );
 
         // shooter
+        // will probably have to change
         /* 
         new JoystickButton(simp_stick, 8).whileTrue(
             new StartEndCommand(
