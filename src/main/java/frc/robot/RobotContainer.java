@@ -8,11 +8,14 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.Subsystems.ExampleSubsystem;
 import frc.robot.Subsystems.Intake;
 import frc.robot.Subsystems.Shooter;
+import frc.robot.Subsystems.VoltageManager;
 import frc.robot.Subsystems.DriveTrain.DriveTrain;
 import frc.robot.Subsystems.DriveTrain.DriveTrainRealIO;
 import frc.robot.Subsystems.DriveTrain.DriveTrainSimIO;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+
+import java.util.function.Supplier;
 
 import com.pathplanner.lib.auto.NamedCommands;
 
@@ -51,7 +54,9 @@ public class RobotContainer {
 
     public final Intake m_intake = new Intake();
 
-    public final Shooter m_shooter = new Shooter();
+    // public final Shooter m_shooter = new Shooter();
+
+    public final VoltageManager voltageManager = new VoltageManager();
 
     /*
 
@@ -65,9 +70,9 @@ public class RobotContainer {
     */
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
-    // auto commands here
+    // pathplanner commands initialized here
     public RobotContainer() {
-        NamedCommands.registerCommand("Intake On Command", new InstantCommand());
+        NamedCommands.registerCommand("Test Command", new InstantCommand());
 
         // Configure the trigger bindings
         configureBindings();
@@ -98,6 +103,10 @@ public class RobotContainer {
       y_metersPerSecond, 
       angle_radiansPerSecond
       );
+    }
+
+    public void updateVoltageManger() {
+
     }
 
     /**

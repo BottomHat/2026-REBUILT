@@ -23,6 +23,12 @@ public final class Constants {
 
   public static class ShooterConstants {
     public static final int SHOOTER_MOTOR_PORT = -1;
+    public final double SHOOTER_MOTOR_VOLTAGE = 1;
+  }
+
+  public static class HopperConstants {
+    public static final int HOPPER_MOTOR_PORT = -1;
+    public static final double AGITATOR_VOLTAGE = 1;
   }
 
   public static final class Port {

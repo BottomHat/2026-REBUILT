@@ -3,7 +3,9 @@ package frc.robot;
 import edu.wpi.first.math.MathUtil;
 
 public class SubsystemManager {
-
+     public SubsystemManager() {
+          
+     }
      /*
     public void update(JoystickInputs stick_inputs) {
          double stick_x = MathUtil.applyDeadband(-stick_inputs.drive_x(), 0.2, 1)

@@ -12,7 +12,6 @@ import frc.robot.Constants;
 public class Shooter extends SubsystemBase {
     private TalonFX m_shoot_motor;
 
-    public final int SHOOTER_MOTOR_VOLTAGE = 1;
 
     public Shooter() {
         m_shoot_motor = new TalonFX(Constants.ShooterConstants.SHOOTER_MOTOR_PORT);
@@ -29,10 +28,12 @@ public class Shooter extends SubsystemBase {
         m_shoot_motor.setControl(new VoltageOut(voltage));
     }
 
+    /*
     public void setShooterToggle(boolean on) {
         if (on) setShooterVoltage(SHOOTER_MOTOR_VOLTAGE);
         else setShooterVoltage(0);
     }
+        */
 
     @Override
     public void periodic() {

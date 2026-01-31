@@ -3,7 +3,7 @@ package frc.robot.Subsystems;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 
-import edu.wpi.first.wpilibj.DutyCycleEncoder;
+// import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -28,11 +28,10 @@ public class Intake extends SubsystemBase {
         else setIntakeVoltage(0);
     }
 
-    /*
+    
     public double getVoltageUsed() {
-        return voltageUsed;
+        return m_intake.getMotorVoltage().getValueAsDouble();
     }
-        */
 
     @Override
     public void periodic() {
